@@ -11,8 +11,8 @@ public class Loginuser
     public Loginuser(WebDriver driver) {
         PageFactory.initElements(driver, this);
         this.driver = driver; }
-    private final String login = "79260480446@yandex.ru";
-    private final String pass = "po4ka456";
+    private final String login = login;
+    private final String pass = password;
 
     @FindBy(xpath = "//*[@id=\"passp-field-login\"]")
     private WebElement loginField;
