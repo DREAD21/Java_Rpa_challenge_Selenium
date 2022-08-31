@@ -21,6 +21,8 @@ public class Program
     public static cartFunc cart;
     public static music_Home m_Home;
     public static music_secondPage m_Second;
+    public static music_Playlist m_Playlist;
+
 
     @BeforeClass
     public static void Setup()
@@ -36,6 +38,7 @@ public class Program
         cart = new cartFunc(driver);
         m_Home = new music_Home(driver);
         m_Second = new music_secondPage(driver);
+        m_Playlist = new music_Playlist(driver);
         driver.manage().deleteAllCookies();
         driver.manage().window().maximize();
         //задержка на выполнение теста = 10 сек.
@@ -73,15 +76,11 @@ public class Program
     @Test
     public void Test3()
     {
-        driver.get("https://music.yandex.ru/home");
+        driver.get("https://music.yandex.ru/search?text=Light%20the%20night");
         m_Home.Close();
-        m_Home.Click();
-        m_Home.search_Bar();
-        m_Home.search_Click();
-        m_Home.search_Click();
+        //m_Second.All_Results();
         m_Second.Like();
-        driver.get("https://music.yandex.ru/users/krasnov.nikit2015/playlists");
-
-
+        driver.get("https://music.yandex.ru/users/krasnov.nikit2015/playlists/3");
+        m_Playlist.Dislike();
     }
 }
